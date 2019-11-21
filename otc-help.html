@@ -1,0 +1,704 @@
+<html>
+
+  <head>
+    <style>
+      .minihead {
+        font-size: 18px;
+        font-weight: bolder;
+      }
+      .help-container {
+        padding: 0.01em 20px;
+      }
+    </style>
+    <!-- ********** OTC STYLESHEET ********** -->
+    <link rel="stylesheet" href="otcform.css">
+    <!-- ********** Bootstrap CSS ********** -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css" integrity="sha384-MIwDKRSSImVFAZCVLtU0LMDdON6KVCrZHyVQQj6e8wIEJkW4tvwqXrbMIya1vriY" crossorigin="anonymous">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js?ver=1.3.2"></script>
+    <script>
+      $(function() {
+            var offset = $("#sidebar").offset();
+            var topPadding = 15;
+            $(window).scroll(function() {
+                if ($(window).scrollTop() > offset.top) {
+                    $("#sidebar").stop().animate({
+                        marginTop: $(window).scrollTop() - offset.top + topPadding
+                    });
+                } else {
+                    $("#sidebar").stop().animate({
+                        marginTop: 0
+                    });
+                };
+            });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <a href="top"></a>
+      <h2 id="intro"></h2>
+      <div id="main">
+        <h4><b>Links to help:</b></h4>
+        <p><b>General Information</b></p>
+        <ul>
+          <li><a href="#basics">The Basics</a></li>
+          <li><a href="#createNewSku">Creating a New Sku</a></li>
+          <li><a href="#continueSku">Continue with a saved Sku</a></li>
+          <li><a href="#editor">Editor</a></li>
+          <li><a href="#saving">Saving</a></li>
+          <li><a href="#printing">Printing</a></li>
+          <li><a href="#errors">Errors</a></li>
+          <li><a href="#exiting">Exiting</a></li>
+          <!--<li><a href="#"></a></li>-->
+        </ul>
+        <p><b>Specific Section Information</b></p>
+        <ul>
+          <li><a href="#descSku">Sku</a></li>
+          <li><a href="#descSelecPCN">Is a Parent, Child or Neither</a></li>
+          <li><a href="#descManu">Manufacturer Information</a></li>
+          <li><a href="#descPara">Paragraphs</a></li>
+          <li><a href="#descParaFor">Paragraphs For</a></li>
+          <li><a href="#descFeatures">Features</a></li>
+          <li><a href="#descSelectHasIngredients">Has Ingredients</a></li>
+          <li><a href="#descIngredients">Ingredients</a></li>
+          <li><a href="#descSelectHasIncludes">Has Includes</a></li>
+          <li><a href="#descIncludes">Includes</a></li>
+          <li><a href="#descSelectHasTechSpecs">Has Technical Specifications</a></li>
+          <li><a href="#descTechSpecs">Technical Specifications</a></li>
+          <li><a href="#descSelectHasWarnings">Has Warnings</a></li>
+          <li><a href="#descWarnings">Warnings</a></li>
+          <li><a href="#descSelectHasDirections">Has Directions</a></li>
+          <li><a href="#descDirections">Directions</a></li>
+          <li><a href="#descSelectHasUses">Has Uses</a></li>
+          <li><a href="#descUses">Uses</a></li>
+          <li><a href="#descSelectHasOtherInfo">Has Other Information</a></li>
+          <li><a href="#descOther">Other Information</a></li>
+          <li><a href="#descSelectHasAccessories">Has Accessories</a></li>
+          <li><a href="#descAccessories">Accessories</a></li>
+          <li><a href="#descManualDocs">Manual and Documents</a></li>
+        </ul>
+
+        <hr>
+
+        <h3 id="basics">Getting Started - The Basics</h3>
+        <div class="help-container">
+          <span class="minihead">Tips and Tricks</span>
+          <ul>
+            <li>Browsers to Use:<br>
+              <ul>
+                <li>FIREFOX ONLY!</li>
+              </ul>
+            </li>
+            <li>The <b><a href="description-index.html">Main Index Page</a></b> is basically the 'Home' Page for this program<br>
+                From there you can go to the:
+              <ul>
+                <li><a href="otc-new-sku.html">New Sku Page</a> - To Create A New Sku</li>
+                <li><a href="otc-continue-sku.html">Contine Sku Page</a> - To Continue A Sku</li>
+                <li><a href="#">Help & Tips Page</a> - i.e. where you are now</li>
+                <li><a href="desc-todos-updates">Updates Page</a> - you don't need to go here</li>
+              </ul>
+            </li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+        <hr>
+
+        <h3 id="createNewSku">Create A New Sku Description</h3>
+        <div class="help-container">
+          <span class="minihead">Getting Started</span>
+          <ul>
+            <li>Go to the Create a New Sku Page: <a href="">Click Here</a></li>
+            <li>Fill out the form, click the Save Button As changes are made</li>
+            <li>DO NOT FORGET to do the sku part. THIS IS REQUIRED!</li>
+            <li>If you want to print it for Catherine (or yourself), click the 'Create Printable Copy' button.</li>
+            <li>If you want to export it,  click the 'Export Data to XLSX File' button.</li>
+          </ul>
+          <span class="minihead">When Done</span>
+          <ul>
+            <li>If you want to print it for Catherine (or yourself), click the 'Create Printable Copy' button.</li>
+            <li>Click the 'Export Data to XLSX File' button.</li>
+            <li>The downloaded file needs to then be put into this folder:
+              <ul>
+                <li><b>OPTION 1</b></li>
+                <li>DiskStation > OTC NAS > OTCNAS > SRV01 Files > Data > WebDev > My Webs > OTC Wholesale > product-descriptions-otc > product-description-files</li>
+                <li>DiskStation > OTC NAS > OTCNAS > SRV01 Files > Data > WebDev > My Webs > OTC Wholesale > A > B</li>
+                <li><b>OPTION 2</b></li>
+                <li>DiskStation > OTC NAS > OTCNAS > product-descriptions-otc > product-description-files</li>
+                <li>DiskStation > OTC NAS > OTCNAS > A > B</li>
+                <li><b>OPTION 3</b></li>
+                <li>DiskStation > OTC NAS > OTCNAS > projectName > product-descriptions-otc > product-description-files</li>
+                <li>DiskStation > OTC NAS > OTCNAS > C > A > B</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <hr>
+
+        <h3 id="continueSku">Continue A Sku Description</h3>
+        <div class="help-container">
+          <span class="minihead">Getting Started</span>
+          <ul>
+            <li>Go to the Continue Sku Page: <a href="">Click Here</a></li>
+            <li>At the top of the page click the 'Browse' button.</li>
+            <li>Find and select the file you wish to continue from. Click Open.
+              <ul>
+                <li>Files are located in:</li>
+                <li><b>OPTION 1</b></li>
+                <li>DiskStation > OTC NAS > OTCNAS > SRV01 Files > Data > WebDev > My Webs > OTC Wholesale > product-descriptions-otc > product-description-files</li>
+                <li>DiskStation > OTC NAS > OTCNAS > SRV01 Files > Data > WebDev > My Webs > OTC Wholesale > A > B</li>
+                <li><b>OPTION 2</b></li>
+                <li>DiskStation > OTC NAS > OTCNAS > product-descriptions-otc > product-description-files</li>
+                <li>DiskStation > OTC NAS > OTCNAS > A > B</li>
+                <li><b>OPTION 3</b></li>
+                <li>DiskStation > OTC NAS > OTCNAS > projectName > product-descriptions-otc > product-description-files</li>
+                <li>DiskStation > OTC NAS > OTCNAS > C > A > B</li>
+              </ul>
+            </li>
+            <li>Click the 'Process Imported Data' button.</li>
+            <li>Continue to fill out the needed information.</li>
+          </ul>
+          <span class="minihead">When Done</span>
+          <ul>
+            <li>If you want to print it for Catherine (or yourself), click the 'Create Printable Copy' button.</li>
+            <li>Click the 'Export Data to XLSX File' button.</li>
+            <li>The downloaded file needs to then be put into this folder:
+              <ul>
+                <li><b>OPTION 1</b></li>
+                <li>DiskStation > OTC NAS > OTCNAS > SRV01 Files > Data > WebDev > My Webs > OTC Wholesale > product-descriptions-otc > product-description-files</li>
+                <li>DiskStation > OTC NAS > OTCNAS > SRV01 Files > Data > WebDev > My Webs > OTC Wholesale > A > B</li>
+                <li><b>OPTION 2</b></li>
+                <li>DiskStation > OTC NAS > OTCNAS > product-descriptions-otc > product-description-files</li>
+                <li>DiskStation > OTC NAS > OTCNAS > A > B</li>
+                <li><b>OPTION 3</b></li>
+                <li>DiskStation > OTC NAS > OTCNAS > projectName > product-descriptions-otc > product-description-files</li>
+                <li>DiskStation > OTC NAS > OTCNAS > C > A > B</li>
+              </ul>
+            </li>
+            <li>You will need to overwrite the original file.</li>
+          </ul>
+        </div>
+        <hr>
+
+        <h3 id="editor">The Editor</h3>
+        <div class="help-container">
+          <span class="minihead">The Editor</span>
+          <center><img src="img/ckeditor.png">
+          </center>
+          <span class="minihead">Toolbar</span>
+          <span class="minihead">Top Row</span>
+          <ol>
+            <li>Cut</li>
+            <li>Copy</li>
+            <li>Paste</li>
+            <li>Paste as Plain Text</li>
+            <li>Paste from Word</li>
+            <li>Undo</li>
+            <li>Redo</li>
+            <li>Spellcheck</li>
+            <li>Link</li>
+            <li>Unlink</li>
+            <li>Anchor</li>
+            <li>Insert Image</li>
+            <li>Insert Table</li>
+            <li>Insert Horizontal Line</li>
+            <li>Insert Symbol</li>
+            <li>Maximize</li>
+            <li>See HTML</li>
+          </ol>
+          <span class="minihead">Bottom Row</span>
+          <ol>
+            <li>Bold</li>
+            <li>Italics</li>
+            <li>Strickthrough</li>
+            <li>Remove Format</li>
+            <li>Insert/Remove Numbered List</li>
+            <li>Insert/Remove Bulleted List</li>
+            <li>Decrease Indent</li>
+            <li>Increase Indent</li>
+            <li>Block Quote</li>
+            <li>Styles</li>
+            <li>Formats</li>
+            <li>About the Editor</li>
+          </ol>
+          <p><b>How to use it:</b> Just tupe into the main white box.</p>
+        </div>
+        <hr>
+
+        <h3 id="saving">Saving</h3>
+        <div class="help-container">
+          <span class="minihead">The Save Button</span>
+          <ul>
+            <li>When the 'Save' button turns red, a change to the description has occured and it needs to be saved.</li>
+            <li>Simply click the 'Save' button.</li>
+          </ul>
+          <center>
+            <button id="savebtn" class="big-btn col-red" type="button">SAVE</button>
+            ->
+            <button id="savebtn" class="big-btn col-blue" type="button">SAVE</button>
+          </center>
+          <br>
+          <br>
+          <span class="minihead"><u>Saving The File</u></span>
+          <ul>
+            <li>To save the file, click the 'Export Data to XLSX File' button. This will save a new copy.</li>
+          </ul>
+          <center><button type="button" class="btn btn-secondary btn-lg">Export Data to XLSX File</button></center>
+          <br>
+        </div>
+        <hr>
+
+        <h3 id="printing">Printing</h3>
+        <div class="help-container">
+          <ul>
+            <li>To create a Print-Friendsly version, go to the bottom of the page.</li>
+            <li>Click the 'Create Printable Copy' button (shown below).</li>
+          </ul>
+          <center><button type="button" class="btn btn-secondary btn-lg">Create Printable Copy</button></center>
+        <br>
+        </div>
+        <hr>
+
+        <h3 id="errors">Errors and Troubleshooting</h3>
+        <div class="help-container">
+          <ul>
+            <li>If you have any trouble, please let me know.</li>
+          </ul>
+        </div>
+        <hr>
+
+        <h3 id="exiting">Exiting</h3>
+        <div class="help-container">
+          <ul>
+            <li></li>
+          </ul>
+        </div>
+        <hr>
+
+        <h3 id="descSku">Sku</h3>
+        <div class="help-container">
+          <p>This is the sku of the item that is in Stone Edge.</p>
+          <p>RULES</p>
+          <ul>
+            <li>Skus cannot have:
+              <ul>
+                <li>Capital Letters (A, B, C, etc.)</li>
+                <li>Spaces</li>
+                <li>Special Characters other than dashes
+                  <ul>
+                    <li>YES: - (dash)</li>
+                    <li>NO: . , ' " ! ? / \ ( ) [ ] { } @ # $ % ^ &amp; * ; :
+                      <br>(period, comma, single/double quotes, exclamation/question marks, forward/back slashes, parenthesis, brackets, curly braces, etc.)</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <hr>
+
+        <h3 id="descSelecPCN">Is a Parent, Child or Neither</h3>
+        <div class="help-container">
+          <ul>
+            <li>Choose from the drop down menu if this item is a parent, child or neither.</li>
+            <li>If sku is a parent/child: put parent or child</li>
+            <li>If sku is not a parent/child: put neither</li>
+          </ul>
+        </div>
+        <hr>
+
+        <h3 id="descManu">Manufacturer Information</h3>
+        <div class="help-container">
+          <span class="minihead">Name</span>
+          <ul>
+            <li>*Required*</li>
+            <li>Name of the Manufacturer</li>
+            <li>Example:<ul>
+              <li>Roscoe Medical</li>
+              <li>Axelgaard</li>
+            </ul></li>
+          </ul>
+
+          <span class="minihead">Phone</span>
+          <ul>
+            <li>*Required*</li>
+            <li>Phone Number for manufacturer</li>
+            <li>If there are multi check:
+              <ul>
+                <li>Is there a toll-free and direct? Go with the toll-free (1-800...)</li>
+                <li>Is there one that's USA based and the others international? Go with the USA-based.</li>
+                <li>Is one for specifically: Customer Service? Go with that one.</li>
+                <li>If there is still confustion, either: see if we have other product online by them or ask.</li>
+              </ul>
+            </li>
+            <li>Format:
+              <ul>
+                <li>#-###-###-#####</li>
+                <li>or</li>
+                <li>###-###-####</li>
+              </ul>
+            </li>
+          </ul>
+
+          <span class="minihead">Address Line 1</span>
+          <ul>
+            <li>*Required*</li>
+            <li>Address line 1 for manufacturer</li>
+          </ul>
+
+          <span class="minihead">Address Line 2</span>
+          <ul>
+            <li>*Optional*</li>
+            <li>Address line 2 for manufacturer</li>
+          </ul>
+
+          <span class="minihead">City</span>
+          <ul>
+            <li>*Required*</li>
+            <li>City for Manufacturer</li>
+          </ul>
+
+          <span class="minihead">State</span>
+          <ul>
+            <li>*Required*</li>
+            <li>State Abreviations ONLY</li>
+            <li>Example:
+              <ul>
+                <li>Florida: FL</li>
+                <li>Georgia: GA</li>
+                <li>Ohio: OH</li>
+              </ul>
+            </li>
+            <li>Need Help? See Here: <a href="otc-state-abreviations.html">Reference</a></li>
+          </ul>
+
+          <span class="minihead">Zipcode</span>
+          <ul>
+            <li>*Required*</li>
+            <li>Zip Code for Manufacturer</li>
+            <li>Format:</li>
+              <ul>
+                <li>#####</li>
+                <li>33326</li>
+                <li>33323</li>
+              </ul>
+            </li>
+
+          </ul>
+
+          <span class="minihead">Website URL</span>
+          <ul>
+            <li>*Required*</li>
+            <li>Put the FULL url to the manufacturers website.</li>
+            <li>Example:
+              <ul>
+                <li>http://www.otcwholesale.com/</li>
+                <li>http://www.roscoemedical.com/</li>
+              </ul>
+            </li>
+          </ul>
+
+        </div>
+        <hr>
+
+        <h3 id="descPara">Paragraphs</h3>
+        <div class="help-container">
+          <ul>
+            <li>*Required*</li>
+            <li>Main paragraph</li>
+            <li>Version 1 goes in Paragraph 1</li>
+            <li>Version 2 goes in Paragraph 2</li>
+            <li>If you need help, ask or see: <a href="#editor">Editor Tips</a></li>
+          </ul>
+        </div>
+        <hr>
+
+        <h3 id="descParaFor">Paragraphs For</h3>
+        <div class="help-container">
+          <ul>
+            <li>*Required*</li>
+            <li>Choose from the drop down menu if the paragraph (1 or 2) is either for:</li>
+            <li>OTCWholesale</li>
+            <li>or Payless</li>
+            <li>Make sure both are not the same</li>
+          </ul>
+        </div>
+        <hr>
+
+        <h3 id="descFeatures">Features</h3>
+        <div class="help-container">
+          <p></p>
+          <ul>
+            <li>a general explanation that includes things like:<ul>
+              <li># of channels, modes, or programs</li>
+              <li>power supply</li>
+              <li>extras that make it different (if there are any)</li>
+            </ul></li>
+            <li>some features are in description</li>
+            <li>Ex: backlit screen, vanishing scent, one-touch operation, adjustable settings</li>
+            <li>This can be phrases or sentences</li>
+            <li>Avoid 'yeah phrases' i.e. -  excellent product quality</li>
+          </ul>
+        </div>
+        <hr>
+
+        <h3 id="descSelectHasIngredients">Has Ingredients</h3>
+        <div class="help-container">
+          <p>Choose from the drop down menu if this item has ingredients. If yes, choose Yes, or leave it as No.</p>
+        </div>
+        <hr>
+
+        <h3 id="descIngredients">Ingredients</h3>
+        <div class="help-container">
+          <p><b><u>Two Types of Ingredient Situations:</u></b></p>
+
+          <ul>
+            <li><b><u>Item has Active and Inactive Ingredients.</u></b>
+              <ul>
+                <li><b>Biofreeze: http://www.otcwholesale.com/biofreeze-10003.html</b>
+                  <ul>
+                    <li><b>Active Ingredients:</b> Natural Menthol USP (3.5%) (Cooling Pain Reliever)</li>
+                    <li><b>Other Ingredients:</b> Carbomer, FD&C Blue #1, FD&C Yellow #5, Glycerine, Herbal Extract (Ilex Paraguariensis), Isopropyl Alcohol USP, Methylparaben, Natural Camphor USP (For Scent), Propylene Glycol, Silicon Dioxide, Triethanolamine, Purified Water USP</li>
+                  </ul>
+                </li>
+                <li><b>6 Hour Sleep: http://www.otcwholesale.com/6hour-sleep-single.html</b>
+                  <ul>
+                    <li><b>Active Ingredients:</b> Melatonin, 5-HTP, GABA, Valerian Root, Passion Flower, Ashwagandha, Vitamin E, Chamomile, Magnesium, Lemon Balm, Mangosteen and Acai Extract.</li>
+                    <li><b>Other Ingredients:</b> Water, Phosphoric Acid, Citric Acid, Natural Flavor, Potassium Sorbate (Preservative), Sodium Benzoate (Preservative), Sucralose, Acesulfame Potassium, FD&C Yellow #6</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
+            <br>
+
+            <li><b><u>Item has Active and Inactive Ingredients.</u></b>
+              <ul>
+                <li><b>English Leather: http://www.otcwholesale.com/english-09950x3.html</b>
+                  <ul>
+                    <li>Alcohol Denat., Water/Eau, Stearic Acid, Propylene Glycol, Fragrance/Parfum, Cetyl Alcohol,Tricolsan, Sodium Hydroxide, Limonene, Alpha-Isomethyl-Ionone, Coumarin, Linalool, Benzyl Benzoate, Cinnamyl Alcohol, Citral, Geraniol, Hydroxycitronellal,, Citronellol.</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+
+        </div>
+        <hr>
+
+        <h3 id="descSelectHasIncludes">Has Includes</h3>
+        <div class="help-container">
+          <p>Choose from the drop down menu if this item has includes. If yes, choose Yes, or leave it as No.</p>
+        </div>
+        <hr>
+
+        <h3 id="descIncludes">Includes</h3>
+        <div class="help-container">
+          <p>Depending on the item it could just be the title of the item, or for items with parts its the parts list, it also can be the items included in a kit.</p>
+          <ul>
+            <li>Singular Item Example 1:
+              <ul>
+                <li>British Sterling Cologne, 8 oz - 1 ea</li>
+              </ul>
+            </li>
+            <li>Singular Item Example 2:
+              <ul>
+                <li>BodyMed ZZA999 TENS Unit</li>
+                <li>Instruction Manual</li>
+                <li>2 Packs of 4 Electrodes</li>
+                <li>Lead Wires</li>
+                <li>9V Battery</li>
+              </ul>
+            </li>
+            <li>Multi Pack Item Example 1:
+              <ul>
+                <li>British Sterling Cologne, 8 oz - 3 Pack</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <hr>
+
+        <h3 id="descSelectHasTechSpecs">Has Technical Specifications</h3>
+        <div class="help-container">
+          <p>Choose from the drop down menu if this item has technical specifications. If yes, choose Yes, or leave it as No.</p>
+        </div>
+        <hr>
+
+        <h3 id="descTechSpecs">Technical Specifications</h3>
+        <div class="help-container">
+          <p></p>
+          <ul>
+            <li>In most items this is found in the manual, or on the manufacture website. If it's being taken from the manufacture website then it needs to be double checked just to make sure the setting are the same. Always go be what's in the manual, what is on the item or packaging, and on any brochures or flyers the manufacturer has. If there is a discrepancy between them - bring it to Fico. This may be needed to be clarified by the manufacturer.</li>
+            <li>This is all the technical information like modes, programs, frequency, pulse rate/width, sizing, settings, etc.</li>
+            <li>For other items (non-electrotherapy) its sizing, battery, power supply, etc.</li>
+          </ul>
+        </div>
+        <hr>
+
+        <h3 id="descSelectHasWarnings">Has Warnings</h3>
+        <div class="help-container">
+          <p>Choose from the drop down menu if this item has warnings. If yes, choose Yes, or leave it as No.</p>
+        </div>
+        <hr>
+
+        <h3 id="descWarnings">Warnings</h3>
+        <div class="help-container">
+          <p></p>
+          <ul>
+            <li>This is an area where some items may have 5 pages of warnings in their manuals.</li>
+            <li>Use best judgement as some warnings are a little more important or more practical.</li>
+            <li>For the warnings section do not include all the warnings that are listed in the manual. Only some are needed. Keep the number under 10.</li>
+            <li>You can combine some to make one together. For example:
+              <ul>
+                <li>"Don't put electrodes on eyes. Don't put electrodes on throat. Don't put electrodes over the heart."</li>
+                <li>This might be listed as 3 different warning in manual but can be combined into:</li>
+                <li>"Don't put electrodes on eyes, throat, or over the heart."</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <hr>
+
+        <h3 id="descSelectHasDirections">Has Directions</h3>
+        <div class="help-container">
+          <p>Choose from the drop down menu if this item has directions. If yes, choose Yes, or leave it as No.</p>
+        </div>
+        <hr>
+
+        <h3 id="descDirections">Directions</h3>
+        <div class="help-container">
+          <p></p>
+          <ul>
+            <li>If the item has a drug label, or label with directions, put that here.</li>
+            <li>If the item has a manual with (a lot of) directions, put either the simplified form or leave blank.</li>
+          </ul>
+        </div>
+        <hr>
+
+        <h3 id="descSelectHasUses">Has Uses</h3>
+        <div class="help-container">
+          <p>Choose from the drop down menu if this item has uses. If yes, choose Yes, or leave it as No.</p>
+        </div>
+        <hr>
+
+        <h3 id="descUses">Uses</h3>
+        <div class="help-container">
+          <p></p>
+          <ul>
+            <li>This is sometimes used and other times deleted.</li>
+            <li>For items with a Drug Facts type label there is a Uses section and that is used.</li>
+            <li>For others there is a Uses section in a manual and may times that is summed up.</li>
+          </ul>
+        </div>
+        <hr>
+
+        <h3 id="descSelectHasOtherInfo">Has Other Information</h3>
+        <div class="help-container">
+          <p>Choose from the drop down menu if this item has other information. If yes, choose Yes, or leave it as No.</p>
+        </div>
+        <hr>
+
+        <h3 id="descOther">Other Information</h3>
+        <div class="help-container">
+          <p></p>
+          <ul>
+            <li>This is the catch all area for information that needs to included but it dosn't fit in the other areas.</li>
+          </ul>
+        </div>
+        <hr>
+
+        <h3 id="descSelectHasAccessories">Has Accessories</h3>
+        <div class="help-container">
+          <p>Choose from the drop down menu if this item has accessories.</p>
+        </div>
+        <hr>
+
+        <h3 id="descAccessories">Accessories</h3>
+        <div class="help-container">
+          <ul>
+            <li>FOLLOW THESE INSTRUCTIONS CAREFULLY.</li>
+            <li><b>ONLY</b> input the <b>SKU</b> for the item that is an accessory.</li>
+            <li>If there are multiple accessory items, separate the skus with a single space.</li>
+            <li>Example:
+              <ul>
+                <li>Vibe Unit: http://www.otcwholesale.com/currentsolutions-dc1200.html
+                  <ul>
+                    <li>currentsolutions-dc1200lw koalaty-e1p2020wc2x4 leadlok-bf2x4</li>
+                  </ul>
+                </li>
+              </ul>
+
+            </li>
+          </ul>
+        </div>
+        <hr>
+
+        <h3 id="descManualDocs">Manual and Documents</h3>
+        <div class="help-container">
+          <p><b>NOTE:</b> If this is confusing please ask.</p>
+          <span class="minihead">Example 1:</span>
+          <br><br>
+          <p>
+            <strong>View the Instruction Manual:</strong>
+            <a href="http://site.diabeticdiscountdirect.com/pdf/currentsolutions-dc1200.pdf">
+              <img src="http://site.diabeticdiscountdirect.com/assets/pdf.gif" alt="pdf manual" width="30" border="0" align="absmiddle" height="30">
+              LG Vibe TENS Unit Manual
+            </a>
+          </p>
+          <ul>
+            <li>Document Type: 'Instruction Manual'</li>
+            <li>Document Text: 'LG Vibe TENS Unit Manual'</li>
+            <li>Document Name: 'currentsolutions-dc1200'</li>
+          </ul>
+          <br>
+          <span class="minihead">Example 2:</span>
+          <br><br>
+          <p><strong>View the Quick-Start Manual:</strong>
+            <a href="http://site.diabeticdiscountdirect.com/pdf/koalaty-select-ref.pdf">
+              <img src="http://site.diabeticdiscountdirect.com/assets/pdf.gif" alt="pdf manual" width="30" border="0" align="absmiddle" height="30">
+              InTENSity Select Quick Start Guide
+            </a>
+          </p>
+          <ul>
+            <li>Document Type: 'Quick-Start Manual'</li>
+            <li>Document Text: 'InTENSity Select Quick Start Guide'</li>
+            <li>Document Name: 'koalaty-select-ref'</li>
+          </ul>
+          <br>
+          <span class="minihead">Has Manual?</span>
+          <ul>
+            <li>Does the item have a manual? Choose Yes or No.</li>
+          </ul>
+
+          <span class="minihead">How many more docs?</span>
+          <ul>
+            <li>Other than the manual, how many types of documents does the item have.</li>
+          </ul>
+
+          <span class="minihead">Document Type</span>
+          <ul>
+            <li>Type of Document it is</li>
+            <li>Quick Start Guide, Electrode Placement Chart, Settings Flyer, etc.</li>
+          </ul>
+          <span class="minihead">Document Name</span>
+          <ul>
+            <li>File Name of the Document</li>
+            <li>If you do not know this, just put the sku in the textbox.</li>
+          </ul>
+          <span class="minihead">Document Text</span>
+          <ul>
+            <li>This is what the customer sees</li>
+            <li>A shortened version of the name of the item + what type of document is</li>
+          </ul>
+
+        </div>
+        <hr>
+
+      </div>
+      <div id="sidebar" class="print">
+        <center><a href="#top"><button class="big-btn col-light-blue">Back To<br>The Top</button></a></center>
+      </div>
+  </body>
+</html>

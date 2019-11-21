@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <title>Web Form Demo For OTC</title>
+  <!-- ********** OTC STYLESHEET ********** -->
+  <link rel="stylesheet" href="otcform.css">
+  <!-- ********** Bootstrap CSS ********** -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/css/bootstrap.min.css" integrity="sha384-MIwDKRSSImVFAZCVLtU0LMDdON6KVCrZHyVQQj6e8wIEJkW4tvwqXrbMIya1vriY" crossorigin="anonymous">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js?ver=1.3.2"></script>
+  <!-- JAVASCRIPT FILES -->
+  <!--<script script type="text/javascript" src="papaparse.min.js"></script> -->
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+  <!-- ********** ALASQL ********** -->
+  <script src="http://cdn.jsdelivr.net/alasql/0.3/alasql.min.js"></script>
+  <!-- <script src="http://alasql.org/console/xlsx.core.min.js"></script>  9-27-2016-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.7.12/xlsx.core.min.js"></script>
+  <!-- ********** ckeditor ********** -->
+  <!-- <script src="http://cdn.ckeditor.com/4.5.10/standard-all/ckeditor.js"></script> CHANGE 2/21/17-->
+  <script src="http://cdn.ckeditor.com/4.6.2/standard-all/ckeditor.js"></script>
+  <!-- ********** OTC JS DOC ********** -->
+  <script script type="text/javascript" src="otcform-3.js"></script>
+  <!--<script script type="text/javascript" src="otcform.js"></script>-->
+
+
+</head>
+<body>
+
+
+
+  <div class="container print">
+    <h3 style="text-align: center;"><b>Description Form</b></h3>
+  </div>
+  <hr class="print">
+
+  <div class="container">
+    <form name="description" id="description_frm">
+    <div id="main">
+
+      <div class="forscreen">
+
+        <div class="container print sectionmoveover">
+
+          <!-- ****************************************************-->
+          <label class="custom-file">
+            <input type="file" id="inFiles" onchange="fileHandler()" name="inFiles" class="custom-file-input"/>
+            <span class="custom-file-control"></span>
+          </label>
+          <p id="demo1"></p>
+
+          <button type="button" onclick="proccessImportedData()" id="proccessfilebtn">Process Imported Data</button>
+
+          <!-- GENERAL INFO -->
+          <h5><b>General Information:</b></h5>
+
+          <!-- SKU -->
+          <fieldset class="sectionmoveover">
+            <p>
+              <div class="small-3">
+                <label for="sku">Sku:</label>
+              </div>
+              <div class="small-9">
+                <input type="text" name="sku" id="txt_sku" placeholder="SKU" size="50">
+              </div>
+            </p>
+          </fieldset>
+          <!-- TITLE -->
+          <fieldset class="sectionmoveover">
+            <p>
+              <div class="small-3">
+                <label for="skuTitle">TITLE:</label>
+              </div>
+              <div class="small-9">
+                <input type="text" name="skuTitle" id="txt_skuTitle" placeholder="TITLE" size="50">
+              </div>
+            </p>
+          </fieldset>
+          <div class="spacer"></div>
+          <!-- IS PARENT, CHILD or NEITHER -->
+          <fieldset class="sectionmoveover">
+            <div class="small-3">
+              <label for="selectParentChild">Sku is a: </label>
+            </div>
+            <div class="small-9">
+              <select id="selectParentChild" class="styled-select">
+                <option value="">Choose</option>
+                <option value="parent">Parent</option>
+                <option value="child">Child</option>
+                <option value="neither">Neither</option>
+              </select>
+            </div>
+          </fieldset>
+          <div class="spacer"></div>
+        </div>
+
+        <hr class="print">
+
+        <div class="container print sectionmoveover">
+          <!-- MANUFACTURER information -->
+          <h5><b>Manufacturer Information:</b></h5>
+
+          <fieldset class="sectionmoveover">
+            <p>
+              <!-- MANU NAME -->
+              <div class="small-3">
+                <label for="manu-name">Name:</label>
+              </div>
+              <div class="small-9">
+                <input type="text" name="manu-name" id="txt_manu_name" placeholder="Manufacturer's Name" size="50">
+              </div>
+            </p>
+          </fieldset>
+
+          <fieldset class="sectionmoveover">
+            <p>
+              <!-- MANU PHONE -->
+              <div class="small-3">
+                <label for="manu-phone">Phone:</label>
+              </div>
+              <div class="small-9">
+                <input type="text" name="manu-phone" id="txt_manu_phone" placeholder="Manufacturer's Phone Number" size="50">
+              </div>
+            </p>
+          </fieldset>
+
+          <fieldset class="sectionmoveover">
+            <p>
+              <!-- MANU ADDRESS -->
+              <div class="small-3">
+                <label for="manu-address">Address:</label>
+              </div>
+              <div class="small-9">
+                <input type="text" name="manu-address" id="txt_manu_address" placeholder="Manufacturer's Address - Line 1, Line 2, City, State, Zip" size="50">
+              </div>
+            </p>
+          </fieldset>
+
+          <fieldset class="sectionmoveover">
+            <p>
+              <!-- MANU WEBSITE -->
+              <div class="small-3">
+                <label for="manu-website">Website URL:</label>
+              </div>
+              <div class="small-9">
+                <input type="text" name="manu-website" id="txt_manu_website" placeholder="Manufacturer's Website URL" size="50">
+              </div>
+            </p>
+          </fieldset>
+          <div class="spacer"></div>
+        </div>
+
+        <hr class="print">
+
+        <div class="container print sectionmoveover">
+          <!-- PARAGRAPH 1 -->
+          <h5><b>Paragraph 1:</b></h5>
+          <div class="sectionmoveover">
+            <textarea cols="80" id="paragraph1editor" name="paragraph1editor" rows="10"></textarea>
+          </div>
+          <br>
+
+          <fieldset class="sectionmoveover">
+            <!-- P 1 FOR -->
+            <div class="small-3">
+              <label for="selectp1for">Paragraph 1 for: </label>
+            </div>
+            <div class="small-9">
+              <select id="selectp1for" class="styled-select">
+                <option value="">Choose</option>
+                <option value="otcwholesale">OTCWholesale</option>
+                <option value="payless">Payless</option>
+              </select>
+            </div>
+          </fieldset>
+
+        </div>
+
+        <hr class="print">
+
+        <div class="container print sectionmoveover">
+
+          <!-- PARAGRAPH 2 -->
+          <h5><b>Paragraph 2:</b></h5>
+          <div class="sectionmoveover">
+            <textarea cols="80" id="paragraph2editor" name="paragraph2editor" rows="10"></textarea>
+          </div>
+          <br>
+          <fieldset class="sectionmoveover">
+            <!-- P 2 FOR -->
+            <div class="small-3">
+              <label for="selectp2for">Paragraph 2 for: </label>
+            </div>
+            <div class="small-9">
+              <select id="selectp2for" class="styled-select">
+                <option value="">Choose</option>
+                <option value="otcwholesale">OTCWholesale</option>
+                <option value="payless">Payless</option>
+              </select>
+            </div>
+          </fieldset>
+
+        </div>
+
+        <hr class="print">
+
+        <div class="container print sectionmoveover">
+          <!-- FEATURES -->
+          <h5><b>Features:</b></h5>
+          <div class="sectionmoveover">
+            <textarea cols="80" id="features1editor" name="features1editor" rows="10"></textarea>
+          </div>
+        </div>
+
+        <hr class="print">
+
+        <div class="container print sectionmoveover">
+          <!-- INGREDIENTS -->
+          <h5><b>Ingredients:</b></h5>
+          <fieldset class="sectionmoveover">
+            <div class="small-3">
+              <label for="selectHasIngredients">Has ingredients? </label>
+            </div>
+            <div class="small-9">
+              <select id="selectHasIngredients" class="styled-select">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+              </select>
+            </div>
+          </fieldset>
+          <div id="ingredientfields">
+            <div class="sectionmoveover">
+              <textarea cols="80" id="ingredients1editor" name="ingredients1editor" rows="10"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <hr class="print">
+
+        <div class="container print sectionmoveover">
+          <!-- INCLUDES -->
+          <h5><b>Includes:</b></h5>
+          <fieldset class="sectionmoveover">
+            <div class="small-3">
+              <label for="selectHasIncludes">Has Includes? </label>
+            </div>
+            <div class="small-9">
+              <select id="selectHasIncludes" class="styled-select">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+              </select>
+            </div>
+          </fieldset>
+          <div id="includefields">
+            <div class="sectionmoveover">
+              <textarea cols="80" id="includes1editor" name="includes1editor" rows="10"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <hr class="print">
+
+        <div class="container print sectionmoveover">
+          <!-- SPECS -->
+          <h5><b>Technical Specifications:</b></h5>
+          <fieldset class="sectionmoveover">
+            <div class="small-3">
+              <label for="selectHasTechSpecs">Has Tech Specs? </label>
+            </div>
+            <div class="small-9">
+              <select id="selectHasTechSpecs" class="styled-select">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+              </select>
+            </div>
+          </fieldset>
+          <div id="techspecfields">
+            <div class="sectionmoveover">
+              <textarea cols="80" id="techspecseditor" name="techspecseditor" rows="10"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <hr class="print">
+
+        <div class="container print sectionmoveover">
+          <!-- DOCS -->
+          <h5><b>Documents:</b></h5>
+          <fieldset class="sectionmoveover">
+            <div class="small-3">
+              <label for="selectHasManual">Has manual? </label>
+            </div>
+            <div class="small-9">
+              <select id="selectHasManual" class="styled-select">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+              </select>
+            </div>
+          </fieldset>
+          <div id="manualfields">
+            <fieldset class="sectionmoveover">
+              <div class="small-3">
+                <label for="sku">Document Name: </label>
+              </div>
+              <div class="small-9">
+                <input type="text" name="manualname" id="txt_manual_name" placeholder="Manual Name">
+              </div>
+            </fieldset>
+            <fieldset class="sectionmoveover">
+              <div class="small-3">
+                <label for="sku">Document Text: </label>
+              </div>
+              <div class="small-9">
+                <input type="text" name="manualtext" id="txt_manual_text" placeholder="Manual Text">
+              </div>
+            </fieldset>
+          </div>
+          <!-- // ***** CHANGE MADE BY LILLIAN - 06/16/2017 ***** -->
+          <!--
+          <fieldset class="sectionmoveover">
+            <div class="small-3">
+              <label for="selectHasMoreDocs">How many more docs? </label>
+            </div>
+            <div class="small-9">
+              <select id="selectHasMoreDocs" name="selectHasMoreDocs" class="styled-select">
+                <option value="0">0</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+              </select>
+            </div>
+          </fieldset>
+        -->
+          <!--
+          <div id="documentfields-1"> -->
+            <!-- DOCUMENT 2 -->
+            <!--
+            <fieldset class="sectionmoveover">
+              <div class="small-3">
+                <label for="doctype1">Document 1 Type: </label>
+              </div>
+              <div class="small-9">
+                <input type="text" name="doctype1" id="txt_doc_type_1" placeholder="Document 1 Type">
+              </div>
+            </fieldset>
+            <fieldset class="sectionmoveover">
+              <div class="small-3">
+                <label for="docname1">Document 1 Name: </label>
+              </div>
+              <div class="small-9">
+                <input type="text" name="docname1" id="txt_doc_name_1" placeholder="Document 1 Name">
+              </div>
+            </fieldset>
+            <fieldset class="sectionmoveover">
+              <div class="small-3">
+                <label for="doctext1">Document 1 Text: </label>
+              </div>
+              <div class="small-9">
+                <input type="text" name="doctext1" id="txt_doc_text_1" placeholder="Document 1 Text">
+              </div>
+            </fieldset>
+          </div>
+        -->
+          <!--
+          <div id="documentfields-2"> -->
+            <!-- DOCUMENT 2 -->
+            <!--
+            <fieldset class="sectionmoveover">
+              <div class="small-3">
+                <label for="doctype2">Document 2 Type: </label>
+              </div>
+              <div class="small-9">
+                <input type="text" name="doctype2" id="txt_doc_type_2" placeholder="Document 2 Type">
+              </div>
+            </fieldset>
+            <fieldset class="sectionmoveover">
+              <div class="small-3">
+                <label for="docname2">Document 2 Name: </label>
+              </div>
+              <div class="small-9">
+                <input type="text" name="docname2" id="txt_doc_name_2" placeholder="Document 2 Name">
+              </div>
+            </fieldset>
+            <fieldset class="sectionmoveover">
+              <div class="small-3">
+                <label for="doctext2">Document 2 Text: </label>
+              </div>
+              <div class="small-9">
+                <input type="text" name="doctext2" id="txt_doc_text_2" placeholder="Document 2 Text">
+              </div>
+            </fieldset>
+          </div>
+          -->
+          <!--
+          <div id="documentfields-3"> -->
+            <!-- DOCUMENT 2 -->
+            <!--
+            <fieldset class="sectionmoveover">
+              <div class="small-3">
+                <label for="doctype3">Document 3 Type: </label>
+              </div>
+              <div class="small-9">
+                <input type="text" name="doctype3" id="txt_doc_type_3" placeholder="Document 3 Type">
+              </div>
+            </fieldset>
+            <fieldset class="sectionmoveover">
+              <div class="small-3">
+                <label for="docname3">Document 3 Name: </label>
+              </div>
+              <div class="small-9">
+                <input type="text" name="docname3" id="txt_doc_name_3" placeholder="Document 3 Name">
+              </div>
+            </fieldset>
+            <fieldset class="sectionmoveover">
+              <div class="small-3">
+                <label for="doctext3">Document 3 Text: </label>
+              </div>
+              <div class="small-9">
+                <input type="text" name="doctext3" id="txt_doc_text_3" placeholder="Document 3 Text">
+              </div>
+            </fieldset>
+          </div>
+        -->
+
+        </div>
+
+        <hr class="print">
+
+        <div class="container print sectionmoveover">
+          <!-- WARNINGS -->
+          <h5><b>Warnings:</b></h5>
+          <fieldset class="sectionmoveover">
+            <div class="small-3">
+              <label for="selectHasWarnings">Has Warnings? </label>
+            </div>
+            <div class="small-9">
+              <select id="selectHasWarnings" class="styled-select">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+              </select>
+            </div>
+          </fieldset>
+          <div id="warningsfields">
+          <div class="sectionmoveover">
+            <textarea cols="80" id="warningseditor" name="warningseditor" rows="10"></textarea>
+          </div>
+          </div>
+        </div>
+
+        <hr class="print">
+
+        <div class="container print sectionmoveover">
+          <!-- DIRECTIONS -->
+          <h5><b>Directions:</b></h5>
+          <fieldset class="sectionmoveover">
+            <div class="small-3">
+              <label for="selectHasDirections">Has Directions? </label>
+            </div>
+            <div class="small-9">
+              <select id="selectHasDirections" class="styled-select">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+              </select>
+            </div>
+          </fieldset>
+          <div id="directionsfields">
+          <div class="sectionmoveover">
+            <textarea cols="80" id="directionseditor" name="directionseditor" rows="10"></textarea>
+          </div>
+          </div>
+        </div>
+
+        <hr class="print">
+
+        <div class="container print sectionmoveover">
+          <!-- USES -->
+          <h5><b>Uses:</b></h5>
+          <fieldset class="sectionmoveover">
+            <div class="small-3">
+              <label for="selectHasUses">Has Uses? </label>
+            </div>
+            <div class="small-9">
+              <select id="selectHasUses" class="styled-select">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+              </select>
+            </div>
+          </fieldset>
+          <div id="usesfields">
+          <div class="sectionmoveover">
+            <textarea cols="80" id="useseditor" name="useseditor" rows="10"></textarea>
+          </div>
+          </div>
+        </div>
+
+        <hr class="print">
+
+        <div class="container print sectionmoveover">
+          <!-- OTHER INFO -->
+          <h5><b>Other Information:</b></h5>
+          <fieldset class="sectionmoveover">
+            <div class="small-3">
+              <label for="selectHasOtherInfo">Has Other Info?</label>
+            </div>
+            <div class="small-9">
+              <select id="selectHasOtherInfo" class="styled-select">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+              </select>
+            </div>
+          </fieldset>
+          <div id="otherinfofields">
+          <div class="sectionmoveover">
+            <textarea cols="80" id="othereditor" name="othereditor" rows="10"></textarea>
+          </div>
+          </div>
+        </div>
+
+        <hr class="print">
+
+        <div class="container print sectionmoveover">
+          <!-- ACCESSORIES -->
+          <h5><b>Accessories:</b></h5>
+          <fieldset class="sectionmoveover">
+            <div class="small-3">
+              <label for="selectHasAccessories">Has Accessories?</label>
+            </div>
+            <div class="small-9">
+              <select id="selectHasAccessories" class="styled-select">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+              </select>
+            </div>
+          </fieldset>
+          <div id="accessoriesfields">
+          <div class="sectionmoveover">
+            <textarea cols="80" id="accessories1editor" name="accessories1editor" rows="10"></textarea>
+          </div>
+          </div>
+        </div>
+
+        <hr class="print">
+
+        <div class="container print sectionmoveover">
+          <!-- Country of Origin -->
+          <h5><b>Country of Origin:</b></h5>
+          <fieldset class="sectionmoveover">
+            <div class="small-3">
+              <label for="country-of-origin">Country of Origin:</label>
+            </div>
+            <div class="small-9">
+              <input type="text" name="country-of-origin" id="txt_country_of_origin" placeholder="Country of Origin" size="50">
+            </div>
+          </fieldset>
+        </div>
+
+        <hr class="print">
+
+        <div class="container print sectionmoveover">
+          <!-- NOTES -->
+          <h5><b>Notes:</b></h5>
+          <fieldset class="sectionmoveover">
+            <div class="small-3">
+              <label for="selectHasNotes">Has Notes?</label>
+            </div>
+            <div class="small-9">
+              <select id="selectHasNotes" class="styled-select">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+              </select>
+            </div>
+          </fieldset>
+          <div id="notesfields">
+          <div class="sectionmoveover">
+            <textarea cols="80" id="notes1editor" name="notes1editor" rows="10"></textarea>
+          </div>
+          </div>
+        </div>
+
+        <hr class="print">
+
+        <div class="container print sectionmoveover">
+          <!-- PROD TABLE -->
+          <h5><b>Parent Child Table:</b></h5>
+          <fieldset class="sectionmoveover">
+            <div class="small-3">
+              <label for="selectHasProdTable">Has Table?</label>
+            </div>
+            <div class="small-9">
+              <select id="selectHasProdTable" class="styled-select">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>
+              </select>
+            </div>
+          </fieldset>
+          <div id="prodtablefields">
+            <div class="sectionmoveover">
+              <p><b>To Fill Out:</b><br>
+                sku1, name, short-name, difference; sku2, name, short-name, difference; ...
+                child-sku1, "Child-1 Name", "Child-1 Short Name", "What makes child-1 different"; child-sku2, "Child-2 Name", "Child-2 Short Name", "What makes child-2 different"; etc</p>
+              <p><b>Format:</b></p>
+              <ul>
+                <li>Sku - sku that is in stone edge, if not known just put child1</li>
+                <li>Name - Name for Child.</li>
+                <li>Short Name - Short Name for Child. (what goes in the drop-down)</li>
+                <li>Difference - Color, Size (Do not use quote or semicolan symbols)</li>
+              </ul>
+            </div>
+            <div class="sectionmoveover">
+              <textarea cols="80" id="prodtable1editor" name="prodtable1editor" rows="10"></textarea>
+            </div>
+          </div>
+        </div>
+
+        <hr class="print">
+
+        <div class="container print sectionmoveover">
+          <!-- FINAL PARAGRAPH -->
+          <fieldset class="sectionmoveover">
+            <div class="small-3">Final Paragraph</div>
+            <div class="small-9"><p id="finalParagraphElement"></p></div>
+          </fieldset>
+        </div>
+
+        <hr class="print">
+        <div class="container print">
+          <br>
+          <br>
+          <center>
+            <button type="button" class="btn btn-secondary btn-lg" onclick="window.exportData()">Export Data to XLSX File</button>
+            <button type="button" class="btn btn-secondary btn-lg" onclick="createPrintFriendly()">Create Printable Copy</button>
+          </center>
+          <br>
+          <br>
+          <br>
+          <br>
+        </div>
+
+        <!-- PRINT FRIENDLY DIV -->
+      </div>
+      <div class="forprint">
+        <div id="printingdiv" class="forprinting" style="white-space:pre-line;">
+        </div>
+      </div>
+
+    </div>
+    <div id="sidebar" class="print">
+      <center><button id="savebtn" class="big-btn col-blue" type="button" onclick="saveDataToArray()">SAVE</button></center>
+      <!-- <center><button id="publishbtn" class="big-btn col-blue" type="button" onclick="publishArray()">CREATE DESC</button></center> -->
+      <!-- <center><button id="publishbtn-1" class="big-btn col-blue" type="button" onclick="window.exportDataPub()">EXP DESC</button></center> -->
+    </div>
+    </form>
+  </div>
+  <!-- jQuery first, then Tether, then Bootstrap JS. -->
+  <script>
+    CKEDITOR.replace( 'paragraph1editor', {
+      width: 800,
+      height: 100
+      // ,
+      // on: {
+      //   change: function(evt) {
+      //     console.log(evt);
+      //     CKEDITOR.dom.element.createFromHtml( '<p style="color:red">Editor contents changed!</p>' ).appendTo( CKEDITOR.document.getBody() );
+      //   }
+      // }
+    } );
+    CKEDITOR.replace( 'paragraph2editor', {
+      width: 800,
+      height: 100
+    } );
+    CKEDITOR.replace( 'features1editor', {
+      width: 800,
+      height: 100
+    } );
+    CKEDITOR.replace( 'ingredients1editor', {
+      width: 800,
+      height: 100
+    } );
+    CKEDITOR.replace( 'includes1editor', {
+      width: 800,
+      height: 100
+    } );
+    CKEDITOR.replace( 'techspecseditor', {
+      width: 800,
+      height: 100
+    } );
+    CKEDITOR.replace( 'warningseditor', {
+      width: 800,
+      height: 100
+    } );
+    CKEDITOR.replace( 'directionseditor', {
+      width: 800,
+      height: 100
+    } );
+    CKEDITOR.replace( 'useseditor', {
+      width: 800,
+      height: 100
+    } );
+    CKEDITOR.replace( 'othereditor', {
+      width: 800,
+      height: 100
+    } );
+    CKEDITOR.replace( 'accessories1editor', {
+      width: 800,
+      height: 100
+    } );
+    CKEDITOR.replace( 'notes1editor', {
+      width: 800,
+      height: 100
+    } );
+    CKEDITOR.replace( 'prodtable1editor', {
+      width: 800,
+      height: 100
+    } );
+  </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js" integrity="sha384-THPy051/pYDQGanwU6poAc/hOdQxjnOEXzbT+OuUAFqNqFjL+4IGLBgCJC3ZOShY" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.2.0/js/tether.min.js" integrity="sha384-Plbmg8JY28KFelvJVai01l8WyZzrYWG825m+cZ0eDDS1f7d/js6ikvy1+X+guPIB" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.3/js/bootstrap.min.js" integrity="sha384-ux8v3A6CPtOTqOzMKiuo3d/DomGaaClxFYdCu2HPMBEkf6x2xiDyJ7gkXU0MWwaD" crossorigin="anonymous"></script>
+</body>
+
+</html>
